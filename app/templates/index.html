@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Привет, {{ current_user.username }}!</h1>
+    <form id="chat-form">
+        <textarea id="user-input" rows="4" class="form-control" placeholder="Введите ваш вопрос..."></textarea><br><br>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+    <div id="response-container" style="margin-top: 20px;"></div>
+
+    <script>
+        $('#chat-form').on('submit', function(event) {
+            event.preventDefault();
+            const userInput = $('#user-input').val();
+            $.ajax({
+                url: '/ask',
+                method: 'POST',
+                data: { user_input: userInput },
+                success: function(data) {
+                    $('#response-container').text(data.response);
+                }
+            });
+        });
+    </script>
+{% endblock %}
