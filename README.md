@@ -58,7 +58,13 @@ flask db migrate
 flask db upgrade
 ```
 
+---
 
+## Лицензия
+
+[Проект распространяется под лицензией MIT](https://github.com/QuadDarv1ne/chatgpt-flask/blob/master/LICENCE)
+
+---
 
 **Автор:** Дуплей Максим Игоревич
 
